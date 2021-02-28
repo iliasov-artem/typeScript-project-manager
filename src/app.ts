@@ -1,22 +1,6 @@
-enum Role { ADMIN = 'ADMIN', USER = 'USER', EXPERT = 'EXPERT' }
+import { ProjectInput } from './components/project-input.js';
+import { ProjectList } from './components/project-list.js';
 
-const person = {
-  name: 'art',
-  age: 30,
-  hobbies: ['art', 'sport'],
-  role: Role.ADMIN
-}
-person.name = '1'
-// person.name = true
-
-const button = document.querySelector('button')!;
-button.addEventListener('click', (a) => {
-  console.log(a)
-  console.log('Clicked')
-});
-
-if (button !== null) {
-  button.addEventListener('click', () => {
-    console.log('Clicked')
-  });
-}
+new ProjectInput();
+new ProjectList('active');
+new ProjectList('finished');
