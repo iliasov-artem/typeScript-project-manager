@@ -1,7 +1,7 @@
-import { Component } from '../components/base-component.js';
-import { validate } from '../utils/validation.js';
-import { autoBind } from '../decorators/autobind.js';
-import { projectState } from '../state/project-state.js';
+import { Component } from '../components/base-component';
+import { Validatable, validate } from '../utils/validation';
+import { autoBind } from '../decorators/autobind';
+import { projectState } from '../state/project-state';
 
 // ProjectInput Class
 export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
@@ -36,16 +36,16 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     const enteredDescription = this.descriptionInputElement.value;
     const enteredPeople = this.peopleInputElement.value;
 
-    const titleValidatable = {
+    const titleValidatable: Validatable = {
       value: enteredTitle,
       required: true,
     };
-    const descriptionValidatable = {
+    const descriptionValidatable: Validatable = {
       value: enteredDescription,
       required: true,
       minLength: 5,
     };
-    const peopleValidatable = {
+    const peopleValidatable: Validatable = {
       value: +enteredPeople,
       required: true,
       min: 1,
